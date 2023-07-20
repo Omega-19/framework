@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice_4_vue</title>
+</head>
+<body>
+  
+  <div id="app">
+    <!-- pour entrer du texte -->
+    <p> Le texte de l'entraînement est  : <em>{{ textInput }}</em></p>
+    <input
+     type="text" 
+     placeholder="Entrez du text"
+     v-model="textInput">
+
+     <!--   v-on:input="saveInput " :value="textInput" on utilise cette intaxe  -->
+     <!-- v-model: synchronise la valeur du champ associé à l'Etat (state) correspondant -->
+     
+     <!-- mot de pass -->
+     <p>Mot de passe saisie: <strong>{{ pwd }}</strong></p>
+    <input  type="password"  placeholder="Mot de pass" @:input="savePassword" :value="pwd">
+
+    <!--  exercice du cours-->
+    <p> Le texte entré est : {{ text }}</p>
+    <input  
+    type="text" 
+    @input="onInput" 
+    placeholder="Type here">
+  </div>
+
+  <script type="module">
+    import { createApp } from "https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js"
+    
+    createApp({
+      data() {
+        return {
+          textInput: "",
+          text:"",
+          pwd: "",
+        }
+      },
+      methods: {
+  
+        savePassword(e) {
+          this.pwd = e.target.value
+        },
+        onInput(e) {
+          this.text = e.target.value
+        }
+      }
+    }).mount('#app')
+    </script>
+    
+    
+</body>
+</html>

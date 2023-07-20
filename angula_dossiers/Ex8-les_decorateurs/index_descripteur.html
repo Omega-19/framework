@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Les descripteurs</h1>
+    <p></p>
+    <script>
+        "use strict"
+        let u = {
+            fname: "John",
+            lname: "Doe",
+            age: 23
+        }
+        Object.defineProperty(u, "fname", {
+            configurable: false
+        })
+        delete u.fname;//supprime fname
+        delete u.lname;//supprime lname
+        console.log(u);//affiche age
+
+        // console.log(u);
+        // //Object.defineProperty(objet, nomPropriété, descripteur);
+        // Object.defineProperty(u, "age", {
+        //         // writable: false,
+        //         // enumerable: false
+        //         configurable: false
+        //     }
+        //     );
+        //     console.log("Après changement");
+        //     console.log(u);
+        //     u.age = 30 
+        //     for (const key in u) {
+        //         console.log(key);//fname lname age
+        //     }
+
+        //inscriptible 
+        //enumérable 
+        //configurable 
+
+
+        //writable : il spécifie si la propriété peut être modifié après sa création. Si "writable" est "false", la propriété est considérée comme en lecture seule
+
+
+        //enumerable:Il indique si la propriété sera listé lors du parcours de l'objet à l'aide d'une boucle " for------------in " ou " Object.keys"
+
+
+        //configurable: Il spécifie si la propriété peut être modifié ou supprimé ultérieurement et si les descripteurs peuvent être modifiés
+        
+    </script>
+</body>
+
+</html>

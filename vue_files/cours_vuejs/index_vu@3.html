@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Insertion de l'url de vuejs -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.global.min.js" integrity="sha512-Wbf9QOX8TxnLykSrNGmAc5mDntbpyXjOw9zgnKql3DgQ7Iyr5TCSPWpvpwDuo+jikYoSNMD9tRRH854VfPpL9A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <title>Document</title>
+    <style>
+        .italic{
+            font-style: italic;
+        }
+        .blue{
+            color: blue;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id="root"></div> -->
+    <div id="app">
+        <h1 v-bind:class="styleTitle">
+            {{ titre }}
+        </h1>
+    </div>
+<!-- cette méthode de script necessite l'utilisation du script global -->
+    <!-- <script> 
+        //fonction qui permet de monter l'application
+        const { createApp } = Vue;
+        //on monte l'application  Vue dans la div#app
+        createApp({
+            //liste d'options
+            data(){
+                //option "data"
+                return {
+                    //vos états(state)
+                    msg: "Welcome Nanachoue!🤓🥰😘"
+                }
+            }
+            
+        }).mount("#app");
+    </script> -->
+    <!-- 2e méthode qui utilise l'url browser min dans son sein -->
+    <script type="module">
+        import {createApp} from "https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js" 
+        //fonction qui permet de monter l'application
+        // const { createApp } = Vue;
+        //on monte l'application  Vue dans la div#app
+        createApp({
+            //liste d'options
+            data(){
+                //option "data"
+                return {
+                    //vos états(state)
+                    titre: "Welcome Nanachoue!🤓🥰😘",
+                    styleTitle: "italic blue"
+                }
+            }
+            
+        }).mount("#app");
+    </script>
+</body>
+</html>

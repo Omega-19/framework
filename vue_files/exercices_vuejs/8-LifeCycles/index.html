@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice_9</title>
+</head>
+<body>
+  <div id="app">
+    <p ref="pElementRef"><strong>hello</strong></p>
+  </div>
+  <script type="module">
+    import { createApp } from "https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js"
+    
+    createApp({
+      // ...
+      mounted(){
+        this.start();
+      },
+      methods:{
+        start(){
+          this.$refs.pElementRef.innerHTML = "I'm happy to be there with you 🤩🤩😍 ";
+        }
+      }
+    }).mount('#app')
+    </script>
+    
+</body>
+</html>

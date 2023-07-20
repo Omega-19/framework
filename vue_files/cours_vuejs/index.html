@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{message}} {{age}}<br>
+
+         <br><br>
+
+        {{note.philo}}<br><br>
+
+        {{tab}}<br><br>
+        {{name}}<br><br>
+
+        {{notes}} <br>
+        <!--ceci est nommée syntaxe--> <br>
+         
+        {{name}} est une personne qui reussit toujours a avoir {{notes}} <br> <br>
+        
+<p v-bind:title="message">
+passez votre souris sur moi pendant quelques secondes pour voir mon titre lié dynamiquement!👽👽👽👽
+</p> <br>
+     
+<p v-if="age===20">
+    I'm happy to have {{age}}.
+</p>
+<p v-else-if="age===11">
+    I'm sad.
+</p>
+<p v-else>tu es vieux</p>
+<div>
+    <ul>
+        <li v-for = "n in note">
+            Note : {{n}}
+        </li>
+    </ul>
+</div>
+<!-- quand if ne marche pas en même temps v-else s'affiche -->
+    </div>
+   Warichou😜😜😜😜
+   <!-- Version développement. Celle-ci donne des avertissements utiles sur la console -->
+<script src="https://unpkg.com/vue@3.3.4/dist.vue.global.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

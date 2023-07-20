@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <title>TypeScript</title>
+</head>
+
+<header></header>
+
+<body class="bg-info-subtle container">
+    <main class=" border border-5 border-dark p-4">
+        <section>
+            <article>
+                <h2>NPM</h2>
+                <p><strong>npm</strong>(Node Package Manager) est un <mark>gestionnaire de paquets pour l'écosystème
+                        Node.js</mark>.
+                    Il est utilisé pour <em>installer</em>, <em>mettre à jour</em> et <em>gérer les dépendances</em> des
+                    projets Node.js. NPM
+                    permet aux développeurs de <em>partager et de réutiliser des bibliothèques de code</em> (appelées
+                    <em>"paquets"</em> ou <em>"modules"</em>) développés par d'autres, ainsi que de publier leur propres
+                    paquets pour être utilisés par la communauté.
+                </p>
+            </article>
+            <article>
+                <h2>Les versions</h2>
+                <p>Nous avons trois versions: la version majeure, mineure et patch</p>
+                <p><strong><mark>Version majeure</mark></strong> est la première version créee qui peut necessité un
+                    changement radical au point de ne plus fonctionner avec l'application initiale</p>
+                <p><strong><mark>Version mineure</mark></strong> est la deuxième créée qui ont de petit changement de
+                    plus mais continue de fonctionner avec la meme application</p>
+                <p><strong><mark>Version patch</mark></strong> est la celle qui a subit qq modification mais fonctionne
+                    toujours.</p>
+            </article>
+        </section>
+        <section>
+            <h1>TypeScript</h1>
+
+            <p>TypeScript est un langage de programmation fortement typé qui s'appuie sur JavaScript, vous offrant de
+                meilleurs outils à n'importe quelle échelle.</p>
+            <p>Pour installer TypeScript il faut entrer la commande <strong><mark>npm i -g typescript</mark></strong>
+                dans
+                le terminal avec le g pour dire de façon global.</p>
+        </section>
+        <section>
+            <h2>RESUME DE TOUS</h2>
+            <p><em><strong>TypeScript</strong> est un langage de programmation open source développé par Microsoft. Il
+                    est conçu comme un sur-ensemble typé de JavaScript; ce qui signifie que <mark>tout code JavaScript
+                        valide est également du code TypeScript valide</mark>. Cependant, TypeScript offre des
+                    fonctionnalités supplémentaires qui améliorent le développement et la maintenance des applications
+                    JavaScript à grande échelle.</em></p>
+            <h3>Les avantages et/ou fonctionnalités du TypeScript</h3>
+            <ol>
+                <li>
+                    <strong>Le Typage statique</strong>
+                    <p>TypeScript permet de définir des types pour les variables, les paramètres de fonction, les
+                        valeurs de retour et d'autres éléments du code. Cela permet de détecter les erreurs de typage
+                        lors de la phase de développement plutôt qu'à l'éxécution, ce qui peut améliorer la fiabilité du
+                        code</p>
+                </li>
+                <li>
+                    <strong>Prise en charger des fonctionnalités ECMAScript récentes</strong>:
+                </li>
+                <li>
+                    <strong>Outils de développement avancés</strong>
+                </li>
+                <li>
+                    <strong>Intégration avec JavaScript existant</strong>
+                </li>
+                <li>
+                    <strong>Ecosystème et prise en charge</strong>:
+                </li>
+            </ol>
+        </section>
+        <section>
+            <h4>presentation de l'écrit en test/ts</h4>
+            <p>
+            <ul>
+                <li>
+                    //Types de variables en TYpeScript
+                    //let |const nomVariable: typeVariable = valeur
+                    //number
+                </li>
+                <li>let x: number = 5;</li>
+                <li>const pi: number = 3.14;</li>
+                <li>let hex: number =0xf00d;//hexadecimal</li>
+                <li>let bin: number = 0b0001;//binaire</li>
+                <li>//string</li>
+                <li>let color: string = "blue";</li>
+                <li>//bolean</li>
+                <li>let isFree: boolean = false;</li>
+                <li>
+                    //array
+                    let arr: number[] = [1, 2, 3, 4]//array de number ou un array constitué
+                </li>
+                <li>let str: string[] = ['a', 'b', 'c'];</li>
+                <li>
+                    //Les types de fonctions
+                    /**
+                    *
+                    * @param a
+                    * @param b
+                    * @returns
+                    */
+                </li>
+                <li>
+                    function add(a: string, b:number): number {
+                    return Number(a) + b;
+                    }
+                    console.log(add("4", 2));
+                </li>
+                <li>
+                    function sayHello(): void {
+                    console.log("hello !");
+                    }
+                </li>
+            </ul>
+
+            </p>
+        </section>
+        <section>
+            <ol>
+                <h3>Types de variables TS</h3>
+                <li> -number: les nombres, qu'ils soient entiers ou à virgule</li>
+                <li> - string: représente les chaînes de caractères </li>
+                <li> -boolean: représente les valeurs boléennes, c-a-dire true or false</li>
+                <li> -array: représente un tableau contenant des éléments du même type</li>
+                <li> -object: représente un type "d'objet"</li>
+                <li> -null: représente la valeur "null"</li>
+                <li> -undefined: représente la valeur "undefined"</li>
+
+                <li> -any: C'est un type de variable dont les formes sont acceptées par typescript.Il représente un type
+                    non spécifié ou dynamique.</li>
+                <li> -unknown: représente un élément dont on ne connait pas le type </li>
+                <li> -enum: représente un ensemble de valeurs nommées, énumérées </li>
+                <li> -tuple: représente un tableau avec un nombre fixe d'éléments de types différents. </li>
+            </ol>
+        </section>
+        <section>
+            <h3>Les unions en TS</h3>
+            <p>Pour faire les unions il faut quand même s'assurer d'avoir deux types de variable ensuite utilisé la
+                syntaxe: <strong>a: number | string, b: number | string</strong></p>
+            <code>
+                <pre>
+                    <strong>
+                        <mark>
+                            function add(a: number | string, b: number | string): number{
+                                if (typeof a === "string" && typeof b === "string") {
+                                    return parseInt(a) + parseInt(b);
+                                    <strong style="color: brown; font-style: italic;">(le cas ou les deux variables sont de type string)</strong>
+                                }else if(typeof a === "number" && typeof b === "number"){
+                            
+                                    return a + b;
+                                    <strong style="color: brown; font-style: italic;">(le cas ou les deux variables sont de type string)</strong>
+                                }
+                                return -1;
+                                <strong style="color: brown; font-style: italic;">(le cas ou les deux variables sont de type différents)</strong>
+                            }
+                        </mark>
+                    </strong>
+                </pre>
+            </code>
+        </section>
+        <section>
+            <h3>les classes en typescript</h3>
+            <!-- 
+                *public
+                *private
+                *protected
+             -->
+            <p>
+                <ul>
+                    <li><strong>public</strong>: par défaut, il permet l'accès à la propriété de partout.</li>
+                    <li><strong>private</strong>: ne permet l'accès que dans la classe. Il nous permet de ne plus utiliser les barres de 8 ou dièse</li>
+                    <li><strong>protected</strong>: permet l'accès dans la classe et dans les enfants de la classe.</li>
+                </ul>
+            </p>
+            <p>La déclaration d'une classe ne nécessite pas forcément les getters et setters mais à la place on peut avor une fonction get() qui retourne un élément privé</p>
+        </section>
+        <script src="dist/test.js"></script>
+        <script src="dist/union.js"></script>
+        <script src="dist/classtypescript.js"></script>
+        <script src="dist/generic.js"></script>
+    </main>
+    <footer></footer>
+</body>
+
+</html>

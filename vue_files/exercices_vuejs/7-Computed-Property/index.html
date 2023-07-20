@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Computed_Property</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <form @submit.prevent="addTodo">
+      <input v-model="newTodo">
+      <button>Add Todo</button>
+    </form>
+    <ul>
+      <li v-for="todo in  filteredTodos" :key="todo.id">
+        <input type="checkbox" v-model="todo.done">
+
+        <span :class="{done: todo.done }">{{ todo.text }}</span>
+        <button @click="removeTodo(todo)">X</button>
+      </li>
+    </ul>
+    <button @click="hideCompleted = !hideCompleted">
+      {{ hideCompleted ? 'Show all' : 'Hide completed' }}
+    </button>
+  </div>
+
+  <script type="module">
+    import { createApp } from "https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js"
+
+    let id = 0
+
+    createApp({
+      data() {
+        return {
+          newTodo: '',
+          hideCompleted: false,
+          todos: [
+            { id: id++, text: 'Learn HTML', done: true },
+            { id: id++, text: 'Learn JavaScript', done: true },
+            { id: id++, text: 'Learn Vue', done: false }
+          ]
+        }
+      },
+      computed: {
+        // ...   
+        filteredTodos(){
+          // let tmp = [];
+          // if (this.hideCompleted === true) {
+          //   //je veux cacher les taches complètés
+          //   this.todos.forEach((todo) => {
+          //     if (todo.done === false) {
+          //       tmp.push(todo);//les taches non réalisées sont ajoutées au tableat tmp
+          //     }
+          //   })
+          //   return tmp;
+          // }else{
+          //   //j'affiche les taches non complètés
+          //   return this.todos;
+          // }
+          if (this.hideCompleted){
+            // return this.todos.filter((el => el.done === false))//ceci marche aussi
+            return this.todos.filter((el => !el.done))
+          }else{
+            return this.todos;
+          }
+          //filter sert à filtrer le tableau et d'envoyer un tableau selon le paramétrage.Dans ce cas il nous renvoie les éléments dont la propriété "done " est fausse
+          //il parcourt tout le tableau
+        }
+        },
+        methods: {
+          addTodo() {
+            this.todos.push({ id: id++, text: this.newTodo, done: false })
+            this.newTodo = ''
+          },
+          removeTodo(todo) {
+            this.todos = this.todos.filter((t) => t !== todo)
+          }
+        }
+      }).mount('#app')
+  </script>
+
+</body>
+
+</html>

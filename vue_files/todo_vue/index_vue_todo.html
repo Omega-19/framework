@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="vue.css">
+    <title>Mondocument VUE</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>MY DIFFERENTES INFORMATIONS</h1>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>My Description</legend>
+                <label><strong>FirstName</strong></label>
+                <input type="text" v-model="firstInput" placeholder=" Your FirstName here">
+                <p>Your FirstName is: {{ firstInput}}</p>
+                <label><strong>LastName</strong></label>
+                <input type="text" v-model="secondInput" placeholder="Your LastName here">
+                <p>Your LastName is: {{ secondInput}}</p>
+                <label><strong>Email</strong></label>
+                <input type="email" v-model="onInput" placeholder="Your email here">
+                <p>Your Email is: {{ onInput}}</p>
+                <label><strong>Password</strong></label>
+                <input type="password" v-model="pwd" placeholder="Your password here">
+                <p>Your Password is: {{ pwd}}</p>
+                    
+            </fieldset>
+
+        </form>
+
+        <h2>My TODO LIST WHEN I'M AT HOME </h2>
+        <form @submit.prevent="addTodo">
+            <input type="text" v-model="newTodo">
+            <button type="submit">Add new task </button>
+        </form>
+
+        <ul>
+            <li v-for="(todo, index) in filter" :key="todo.id">
+                <input type="checkbox" v-model="todo.done">
+                <span :class="{done: todo.done}">
+                    <i class='fas fa-user-check' style='font-size:16px'></i>
+                    {{todo.text}}
+                    <button<input type="checkbox" v-model="todo.done">
+                <span :class="{done: todo.done}">
+                    <i class='fas fa-user-check' style='font-size:16px'></i>
+                    {{todo.text}}
+                    <button @click="removeMyTask(index)">
+                        <i class='fa fa-eraser'></i>
+                    </button>
+                </span>>
+                        <i class='fa fa-eraser'></i>
+                    </button>
+                </span>
+            </li>
+        </ul>
+
+        <button @click="hide = !hide">
+            {{ hide ? 'Show' : 'Hide'}}
+        </button>
+    </div>
+    <script type="module">
+        import { createApp } from "https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js"
+
+        let id = 0
+
+        createApp({
+            data() {
+                return {
+                    selected: "",
+                    hide: false,
+                    firstInput: "",
+                    secondInput: "",
+                    onInput: "",
+                    pwd: "",
+                    // message:"My TODO LIST WHEN I'M AT HOME",
+                    newTodo: '',
+                    todos: [
+
+                    ]
+
+                }
+            },
+            computed: {
+                filter() {
+                    if (this.hide === true) {
+                        return this.todos.filter((el => !el.done));
+                    } else {
+                        return this.todos;
+                    }
+                }
+            },
+            methods: {
+                addTodo() {
+                    this.todos.push({ id: id++, text: this.newTodo, done: false })
+                    this.newTodo = ''
+                },
+                removeMyTask(index) {
+                    this.todos.splice(index, 1)
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

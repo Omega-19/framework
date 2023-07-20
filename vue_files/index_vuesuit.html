@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dates</title>
+    <style>
+        [v-cloak] {display: none;}
+    </style>
+</head>
+
+<body>
+    <div v-cloak id="app">
+        <p>{{ new Date()}}</p>
+        <p>{{user.firstname.toLowerCase()}}</p>
+        <!-- <p>{{ verifyaddress() }}</p>-ceci utilise l'option methods -->
+        <p>{{ verifyaddress }}</p><!--ceci utilise l'option computed-->
+        <!-- <button @click="increment"> Count {{ counter}}</button> -->
+        <!--Par contre ici cela ne marchera que lorsque nous allons mettre le counter++-->
+
+        <p ref="para">Mon paragraph avec id "para"</p>
+
+        <button v-on:click="counter++">Counter : {{ counter }}</button>
+    </div>
+    <script type="module">
+        import { createApp } from "https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js"
+
+        let id = 0
+
+        createApp({
+           
+            data() {
+                return {
+                    counter: 0,
+                    user: {
+                        firstname: "john",
+                        address: {
+                            tel: "+2296655523365852",
+                            email: "nicolevigan1@gmail.com"
+                        }
+                    }
+                }
+            },
+            computed:{
+                verifyaddress() {
+                    return (this.user.address.email.endsWith("@highfive.com")) ? `${this.user.address.email} est un address Highfive` : `
+            ${this.user.address.email} n'est pas un address Highfive`
+                },
+
+                increment(){
+                    this.counter++;
+                }
+            },
+             //hook
+             mounted(){
+               console.log("l'application est prête");
+               this.start();
+            },
+            methods:{
+                start(){
+/*pour récupérer un élément dans vue cette manière on procède
+ref ala place de l'id et refs dans la methods */
+                        // const yes = this.$refs.para;
+                        // console.log(yes);
+                        //la syntaxe est this.$refs.ref(qui remplace l'identifiant).innerHTML = string
+                        this.$refs.para.innerHTML = "Bonjour ma chère Rose";
+                },
+                
+            },
+            // methods: {
+            //     verifyaddress() {
+            //         return (this.user.address.email.endsWith("@highfive.com")) ? `${this.user.address.email} est un address Highfive` : `
+            // ${this.user.address.email} n'est pas un address Highfive`
+            //     }
+            // }
+            // methods:{
+            //     increment(){
+            //         this.counter++;//Dans ce cas sa marche directemeent à chaque clique
+            //     }
+            // }
+            watch: {
+                counter(newValue, oldValue){
+                    console.log(`Ancienne valeur = ${oldValue} et la nouvelle valeur est = ${newValue}`);
+                }
+        }
+    
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

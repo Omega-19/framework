@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://unpkg.com/vue@3.3.4/dist.vue.global.js" defer></script> -->
+    <style>
+        body {
+            width: 980px;
+            background: linear-gradient(to bottom, chartreuse, rgb(196, 167, 196), purple);
+        }
+    </style>
+
+    <title>VUE_JS</title>
+</head>
+
+<body class="container-md pb-3 pt-3 shadow-lg m-2 ">
+
+    <main class="border border-white p-5 m-2 border-5 ">
+
+        <section>
+            <h1 class="text-primary ">VUE JS </h1>
+            
+            <p><strong class="text-danger">Vue js</strong> est
+                <li>un framework javascript.</li>
+                <li>un langage.</li>
+                <li>un langage côté client qui combine html, css et javascript</li>
+                Il utilise des modèles semblables au HTML , mais fais usages des "états(soient des variables)";
+                <em>un <strong>état (en: state) </strong>est une variable qu'on utilise dans notre application (ou dans plus
+                    précisement dans le template).</em>
+            </p>
+            <p>
+                <strong>Rendu déclaratif</strong> : Vue s'appuie sur le standard HTML avec une syntaxe de type template qui
+                permet de décrire de manière déclarative la structure HTML tout en étant basée sur un état JavaScript.
+            </p>
+            <p>
+                <strong>Réactivité</strong> : Vue traque automatiquement tout changement d'état JavaScript et met à jour
+                efficacement le DOM en cas de changement.
+            </p>
+            <p>Un <strong class="text-danger">framework</strong> est un ensemble cohérent de concept de bibliothèque et
+                d'outils qui <em>fournissent une structure et des fonctionnalités</em> pour <em>faciliter le développement
+                    de logiciels</em>.</p>
+            <p>Il s'agit aussi d'un cadre de travail qui <em>aide les codeurs à construire des applications</em> plus
+                facilement rapidement et efficacement en <em>fournissant des fonctionnalités de bases</em>, des
+                a<em>bstractions de haut niveau</em> et<em> des outils de développement</em></p>
+            <p>vue js gère les vues et permet de gerer l'interface utilisateur du navigateur</p>
+            <p>le fait de creer une div sur laquelle travailler permet de greffer vue sur un élément du DOM</p>
+        </section>
+        <h2>Les moustaches</h2>
+        <p>Elles permettent d'interpoler des variables</p>
+        <h2>Les options contenues dans vuejs</h2>
+        <p>Nous avons createApp qui contient en son sein la data option et la methods</p>
+        <p><strong>data option</strong> retourne un objet alors que la methods retourne des fonctions avec leur
+            propriétés mais liées aux variables de l'objet data</p>
+       
+        <p>Ici nous venons de rencontrer quelque chose de nouveau. L’attribut <strong
+                class="text-danger">v-bind</strong> que vous voyez est appelé une directive. Les directives sont
+            préfixées par v- pour indiquer que ce sont des attributs spéciaux fournis par Vue, et comme vous l’avez
+            peut-être deviné, elles appliquent un comportement réactif spécifique au DOM après rendu. Ici cela veut tout
+            simplement dire : « garde l’attribut title de cet élément à jour avec la propriété message de l’instance de
+            Vue ».
+
+            Si vous ouvrez votre console JavaScript une nouvelle fois et entrez <strong><em>app2.message = 'un nouveau
+                    message'</em></strong>, vous verrez l’élément du DOM lié — dans notre cas l’attribut title — se
+            mettre à jour.</p>
+        <p class=" text-white">v-bind fait allusion a une variable déjà définie et par là même permet d'afficher la
+            valeur correspondant via
+            title. title permet d'afficher du contenu sous forme de notification de façon brute. </p>
+        <p class=" text-white">qd on a <strong>0</strong>, <strong>null</strong>, <strong>undefined</strong> ce sont des
+            valeurs
+            <strong>false</strong>
+        </p>
+
+        <p class=" text-white"><strong>seen</strong> conditionne l'affichage d'un élément</p>
+        <p class=" text-white">Les directives utilisées en vue.js sont: <strong>
+                <ul class=" text-white">
+                    <li>v-bind :garde l’attribut title de cet élément à jour avec la propriété message de l’instance de
+                        Vu</li>
+                    <li>v-if;v-else-if;v-else imposent une condition</li>
+                    <li>v-for: nous aide a parcourir un tableau. Autrement dit <strong>la directive v-for peut être
+                            utilisée pour afficher une liste d’éléments en provenance d’un tableau de données</strong>.
+                    </li>
+                    <li><strong>v-on</strong></li>
+                </ul>
+            </strong></p>
+        <p>l'interpolation des attributs nécessite le v-bind</p>
+        <h2 class=" text-white">Les directives utilisées pour rendre dynamique la page</h2>
+        <p class=" text-white">
+            <li>
+                v-model="Le mot clé à utiliser dans la methods data". <br>
+                <strong>NB:</strong>Il est par nature l'ideal pour éviter de trop écrire et de quand même avoir un lien
+                direct entre la variable et sa fonction de façon dynamique et automatique.
+
+            </li>
+            <li>@:input="Le mot clé à utiliser dans la methods data" </li>
+            <li> @input="Le mot clé à utiliser dans la methods data" </li>
+        </p>
+
+        <h2>Les conditionnels</h2>
+        <p class="text-white">
+            avec les v-if et v-else utilisez le this au cas la fonction doit retourner.
+            <code>
+                    <pre class="text-white bold">
+                        return {
+                            awesome: true
+                          }
+
+                          v-if="awesome === true"
+                        v-else="awesome === false"
+                    </pre>
+                </code>
+
+        </p>
+        <section class="text-white">
+            <h2>Les options de fonctionnalités relatives</h2>
+            <p>En vue.js, il existe 2 principales options pour définir les fonctionnalités réactives: <em><strong><mark>"computed" et "methods"</mark></strong></em> <br>
+                <ol>
+                    <li>Computed: utilisez "computed" lorsque vous avez besoin de calculer une propriété basée sur les valeurs existantes des propriétés réactives (states| états). Les propriétés calculées (en | computed properties) sont mises en cache et ne sont recalculées que lorsqur leurs dépendance changent.</li>
+
+                    <code class="text-black">
+                            computed: {
+                                fullName(){
+                                    return this.firstName + ' '+ this.lastName;
+                                },
+                                sortedList(){
+                                    return this.list.sort();
+                                }
+                            }
+                    </code>
+                    <li>
+                        Methods: Utilisez "methods" lorsque vous souhaitez définir des méthodes réutilisables ou lorsque vous devez effectuez une action spécifique en réponse à un évènement. Les méthodes ne sont pas mises en cache et sont recalculées chaque fois qu'elles sont appelées. Les méthodes sont utilisées pour gérer des évènements, effectuer des appels HTTP ou exécuter des opérations complexes. <br>
+
+                        <code class="text-black">
+                            ex:
+                            methods: {
+                                handleClick(){
+                                    this.counter++;
+                                },
+                                fetchDate(){
+                                    //Effectuer une requête HTTP pour récupérer des données
+                                }
+                            }
+                        </code>
+                    </li>
+                </ol>
+            </p>
+        </section>
+
+<h2 class="text-white">La list rendering</h2>
+<p class="text-white">Quand on met la syntaxe <em><mark>v-for="student of students"</mark></em></p>
+<p class="text-white">Le <strong >Key</strong> ajouté va de paire avec les v-for et cela permet à VUEJS de mettre un marqueur sur la variable correspondant afin de vite l'identifier.
+    Le nom utilisé par key est  le nom donné aux étudiants. Dans notre cas <em>student</em>.
+</p>
+
+<h2 class="text-white">Les <strong>"hook en vue js"</strong></h2>
+<p class="text-white"> Chaque application Vue passe par une série d'étapes d'initialisation lorsqu'elle est créée. Par exemple, il faut récupérer les états,fonctions et propriétés réactives de notre application, compiler le template, monter l'instance sur le DOM, et mettre à jour lorsqur les données changent. En cours de route, des fonctions appelées <strong style="color: rgb(230, 249, 57);font-size: 1.5rem;">hooks</strong> sont également exécutées, donnant la possibilité d'ajouter son propre code à des étapes spécifiques.</p>
+<h2 class="text-white">La directive <strong>"watch"</strong> permet de suivre l'état d'une fonction en appellant d'autres fonction</h2>
+le v-cloak permet de cacher les moustaches au démarrage de la page.
+<p>Ce sont des observateurs </p>
+<h2>les <strong>component</strong> qui permettent de constitué notre contenu directement dans vue js</h2>
+<h2><strong>JSON</strong></h2>
+<p>les json sont l'affichage des données avec le serveur</p>
+<div id="app">
+    <caption class="text-white">Liste des élèves</caption>
+    <table class="text-white">
+        <thead>
+            <th>Noms </th>
+            <th> Prenoms</th>
+        </thead>
+        <tbody>
+            <!-- student equal index of students -->
+            <tr v-for="student of students" :key="student.id">
+                <td>{{student.id}}</td>
+                <td>{{student.fname}}</td>
+                <td>{{student.lname}}</td>
+            </tr>
+        </tbody>
+    </table><br>
+    <h2 class="text-white">Liste des langages informatiques</h2><br>
+    <ul class="text-white">
+        <li v-for="(p, index) in language" :key="index">{{p}}</li>
+    </ul>
+</div>
+    </main>
+    <script type="module">
+ import { createApp } from "https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js"
+
+ createApp({
+      data() {
+        return {
+         students: [
+            {id: 1, fname:"KOTCHO", lname: "DELANNO"},
+            {id: 2, fname:"VIGAN", lname: "NICOLE"},
+            {id: 3, fname:"ABOU", lname: "MARTIN"},
+            {id: 4, fname:"KEOULA", lname: "ERFERO"},
+            {id: 5, fname:"A.", lname: "Yes"},
+            {id: 6, fname:"B.", lname: "Nan"},
+            {id: 7, fname:"C.", lname: "Parse"},
+            {id: 8, fname:"D.", lname: "ParseInt"},
+         ],
+         language:[
+            "HTML",
+            "CSS",
+            "Javascript",
+            "Java",
+         ],
+        }
+      }
+    }).mount('#app')
+    </script>
+</body>
+
+</html>

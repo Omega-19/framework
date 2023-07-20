@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+
+  <style>
+    .card {
+      position: relative;
+      background-color: rgb(156, 152, 147);
+      border: 2px solid rgb(111, 173, 227);
+      border-radius: 2rem;
+      margin-top: 2rem;
+      margin-left: 2rem;
+      transition: all 3s;
+      box-shadow: 3px 10px 10px 5px rgb(172, 217, 233);
+    }
+
+    .card:hover {
+      background-color: rgb(232, 138, 232);
+      color: black;
+      font-size: 1.5rem;
+    }
+
+    .user-id {
+      font-family: serif;
+      font-size: 5rem;
+      color: white;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .user-title {
+      font-family: 'Trebuchet MS';
+      font-size: 3rem;
+      color: rgb(41, 6, 168);
+      text-align: center;
+      font-weight: 700;
+      text-shadow: white 10px 10px 5px;
+    }
+
+    .user-completed {
+      position: absolute;
+      bottom: 10rem;
+      font-family: Tahoma;
+      font-style: italic;
+      font-size: 1rem;
+      margin-left: 1rem;
+      padding: 0.5rem;
+      background-color: rgb(42, 10, 147);
+      color: aliceblue;
+    }
+
+    .user-completed:hover {
+      background-color: rgb(7, 88, 170);
+    }
+
+    button {
+      background-color: rgb(134, 98, 6);
+      border-radius: 2rem;
+      color: antiquewhite;
+      transition: all 2s;
+
+
+    }
+
+    button:hover {
+      background-color: chartreuse;
+      color: black;
+      transform: scale(1.2);
+    }
+
+    h3 {
+      text-align: center;
+    }
+
+    span {
+      background-color: chartreuse;
+    }
+
+    .done {
+      text-decoration: line-through;
+    }
+    tr{
+      border-collapse: 2px  solid blue;
+    }
+  </style>
+  <title>Exercice_9</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <p>Todo id: {{ todoId }}</p>
+    <button @click="todoId++">Fetch next todo</button>
+    <p v-if="!todoData">Loading...</p>
+    <!-- <pre v-else>{{ todoData }}</pre> -->
+    <div v-else class="card">
+
+      <h1 class="user-id">{{ todoData.id }}</h1>
+      <h2 class="user-title"> <input type="checkbox" v-model="title">{{ todoData.title }}</h2>
+      <span @click="{done: todoData.completed}"></span>
+      <h3>C'est le <span>moment</span> de <span>danser </span>💃💃💃😍💃💃</h3>
+      <h4 class="user-completed" ref="complet">
+        C'est : {{ todoData.completed }}
+      </h4>
+    </div>
+    <table class="table table-primary table-striped m-5">
+      <caption class="text-black"><strong>Users adresses</strong></caption>
+      <thead>
+        <tr >
+          <th class="text-success fs-4"> ID </th>
+          <th class="text-success fs-4"> NAME</th>
+          <th class="text-success fs-4"> USERNAME</th>
+          <th class="text-success fs-4"> EMAIL</th>
+          <th class="text-success fs-4"> TELEPHONE</th>
+          <th class="text-success fs-4"> COMPLETED</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- student equal index of students -->
+        <tr v-for="(user,index) of users" :key="user.id">
+          <td> <input type="checkbox">
+            {{index +1 }}
+          </td>
+          <td>{{user.name}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user. email}}</td>
+          <td>{{user.phone}}</td>
+          <td>
+            <button @click="todoRemove(index)">x</button>
+            {{user.completed}}
+          </td>
+        </tr>
+      </tbody>
+    </table><br>
+  </div>
+
+  <script type="module">
+    import { createApp } from "https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js"
+
+    createApp({
+      data() {
+        return {
+          todoId: 1,
+          todoData: null,
+          users: {},
+        }
+      },
+      methods: {
+        async fetchData() {
+          this.todoData = null
+          const res = await fetch(`./todos.json`);
+          const userData = await fetch(`./users.json`);//#########
+          this.todoData = (await res.json())[this.todoId - 1];
+          this.users = await userData.json(); //#############
+        },
+        todoRemove(index){
+          this.users.splice(index,1);
+        }
+      },
+      mounted() {
+        this.fetchData()
+      },
+      watch: {
+        todoId() {
+          this.fetchData();
+        }
+      }
+    }).mount('#app')
+  </script>
+
+
+</body>
+
+</html>

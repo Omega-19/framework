@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Rendering</title>
+</head>
+<body>
+  
+  <div id="app">
+    <form @submit.prevent="addTodo">
+      <input v-model="newTodo">
+      <button>Add Todo</button>    
+    </form>
+    <ul>
+      <li v-for="(todo, index) in todos" :key="todo.id">
+        {{ todo.text }}
+        <button @click="removeTodo(index)">X</button>
+      </li>
+    </ul>
+  </div>
+  
+  <script type="module">
+    import { createApp } from "https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js"
+    
+    // give each todo a unique id
+    let id = 0
+    
+    createApp({
+      data() {
+        return {
+          newTodo: '',
+          todos: [
+            { id: id++, text: 'Learn HTML' },
+            { id: id++, text: 'Learn JavaScript' },
+            { id: id++, text: 'Learn Vue' }
+          ]
+        }
+      },
+      methods: {
+        addTodo() {
+          // on ajoute a ce niveau les nouveaux éléments au tableau en nous basant sur la forme initiale du tableau
+          this.todos.push({ id: id++, text: this.newTodo })
+          this.newTodo = ''//On fait une réintialisation de la valeur afin de ne rien avoir dans le champ de saisie.
+        },
+        removeTodo(index) {
+          // ...
+          this.todos.splice(index, 1)//
+        }
+      }
+    }).mount('#app')
+    </script>
+    
+</body>
+</html>
